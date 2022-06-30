@@ -18,7 +18,7 @@ const FunctionNode = ({ data, selected }) => {
       color={"Lavender"}
       content={
         <>
-          <div style={style.contentHeader}>{"Inputs"}</div>
+          <div style={style.contentHeader}>{"Column Name"}</div>
           {data.inputs.map((input) => (
             <div
               key={"i-" + input.label}
@@ -32,24 +32,6 @@ const FunctionNode = ({ data, selected }) => {
                 style={{ ...style.handle, ...style.left }}
                 isValidConnection={(connection) =>
                   isValidInput(connection, input.type)
-                }
-              />
-            </div>
-          ))}
-          <div style={style.contentHeader}>{"Outputs"}</div>
-          {data.outputs.map((output) => (
-            <div
-              key={"o-" + output.label}
-              style={{ ...style.io, ...style.textRight }}
-            >
-              {output.label}
-              <Handle
-                type="source"
-                position="right"
-                id={"o-" + output.label + "__" + output.type}
-                style={{ ...style.handle, ...style.right }}
-                isValidConnection={(connection) =>
-                  isValidOutput(connection, output.type)
                 }
               />
             </div>
